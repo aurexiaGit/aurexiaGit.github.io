@@ -1,4 +1,4 @@
-# Aurexia Wallet
+# Aurexia's Wallet Dev environment
 
 This project is aiming the creation of an internal Blockchain, allowing Aurexia Staff to exchange Tokens.
 
