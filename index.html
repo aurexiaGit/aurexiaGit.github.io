@@ -2,31 +2,39 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="Blockchain/images/logoBlockchain.png"/>
-        <link rel = "stylesheet" href = "Blockchain/styles/style.css" />
-        <link rel = "stylesheet" href = "Blockchain/styles/header.css" />
-        <link rel = "stylesheet" href = "Blockchain/styles/admin.css" />
-        <link rel = "stylesheet" href = "Blockchain/styles/index.css" /> 
-        <title>MyWallet - Aurexia</title> 
+        <link rel="icon" type="image/png" href="Blockchain/images/Finlab.png"/>
+        <link rel="stylesheet" href="bootstrap/bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="custom.css"/>
+        <title>FinLab Aurexia</title> 
     </head>
 
     <body>
-        <div id="block_page">
-            <header>
-                <div id="logo">
-                    <img id = "logo" src="Blockchain/images/logoAurexia.png" alt="Logo Aurexia" />
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img id = "logo" src="Blockchain/images/Finlab.png" alt="Logo Aurexia" width="20%"/>
+                    </a>
                 </div>
-            </header>
-            <section id = "buttons">
-                <button id = Blockchain onclick="window.location='Blockchain/index.html'">Access Blockchain</button>
-                <button id = Blockchain_vTest onclick="window.location='Blockchain_vTest/index.html'">Access Blockchain_vTest</button>
-                <button id = AST_site onclick="window.location='AST_site/index.html'">Access AST_site</button>
-                <button id = Blockchain_dev onclick="window.location='Blockchain_dev/index.html'">Access Blockchain_dev</button>
-                <button id = Blockchain_dev_ABA onclick="window.location='Blockchain_dev_ABA/index.html'">Access Blockchain_dev_ABA</button>
-            </section>
-            <footer>
-                <p>© Copyright Aurexia – All rights reserved<br /></p>
-            </footer>
+            </div>
+        </nav>
+        
+        <div class="container-fluid">
+            <div class="row main">
+                <div class="col-sm-4">
+                    <div class="row text-center menu">
+                        <a href="Blockchain/index.html">
+                            <img id="AST" src="Blockchain/images/logo AST.jpg" alt="Aurexia Social Token" width="50%"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <img src="Blockchain/images/Office1.jpg" width="100%" alt="Office">
+                </div>
+            </div>
         </div>
+        <footer class="footer text-center">
+            <p>© Copyright Aurexia 2019 – All rights reserved<br /></p>
+        </footer>
     </body>
 </html> 

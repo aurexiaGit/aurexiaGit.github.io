@@ -1,0 +1,20 @@
+.verticalBar{
+    border-right: 1px solid #DAE3E9;
+}
+
+.footer {
+    position: relative;
+    margin-top: -150px;
+    height: 150px;
+    clear: both;
+    padding-top: 20px;
+}
+
+.main{
+    overflow: auto;
+    padding-bottom: 150px;
+}
+
+.menu{
+    padding-top: 20%;
+}

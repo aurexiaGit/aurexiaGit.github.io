@@ -1,0 +1,36 @@
+﻿seed metamask :enhance prefer gospel staff reward youth forward curve before predict crouch bottom
+MDP : azertyuiop (tu n'en as pas beosin normalement)
+
+admin : 0xc4d446c6B924c431f89214319D5A3e6bb67e7627    (est dans la withelist "aurexiaMember")
+
+test1: 0x4968cccE83Ad9300f27c7Ece3a15e469b51a5dFd     (est dans la withelist "aurexiaMember")
+
+test2: 0xFAb573993Bb7772E9ee25cca1A2DB24a79A4beA8     (n'est pas dans la withelist "aurexiaMember", tu peux l'ajouter si tu veux avec le compte admin)
+
+asso1: 0x48BC8f1c04940da24349a7c9cdeC2040A860C3fe     (ajout�)
+
+asso2: 0x309081BCb2922A0b32b60E6A099d4dBDb85D77e5     (pas ajout�)
+
+Attention par contre quand tu es sur mycrypto de ne pas changer de compte car ca fait bugger le site sinon (il ne sait plus avec quel compte il doit int�ragir avec le contrat)
+Si tu veux changer de compte reload juste la page mycrypto
+Aussi le site est un peu instable, il se peut que la page se reloade toute seule quelques fois
+
+
+Pour int�ragir avec le contrat selection ropsten en haut a droite et entre juste : 
+
+- adresse du contrat : 0x19495DBE107E5Bc90B6Daa62BdA759629A8AD0f3
+
+
+let token = await AurexiaSocialToken.deployed()
+
+let newMembers = token.addToAurexiaMembers ("0x4968cccE83Ad9300f27c7Ece3a15e469b51a5dFd", "0x416d696e65204261647279", 1, {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+let newMembers1 = token.addToAurexiaMembers ("0xFAb573993Bb7772E9ee25cca1A2DB24a79A4beA8", "0x53e96261737469656e20504945525245", 2, {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+let newMembers2 = token.addToAurexiaMembers ("0x48BC8f1c04940da24349a7c9cdeC2040A860C3fe", "0x5a696e6564696e65205a6964616e65", 2, {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+
+token.transferAll("50000000000000000000", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+token.getPersonalWordings("0xc4d446c6B924c431f89214319D5A3e6bb67e7627", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+token.getAllWordings()
+
+token.mint("0x4968cccE83Ad9300f27c7Ece3a15e469b51a5dFd", "1000000000000000000000", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+
+
