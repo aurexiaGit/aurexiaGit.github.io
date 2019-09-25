@@ -8,11 +8,7 @@ This project is aiming the creation of an internal Blockchain, allowing Aurexia 
 
 ## Project Status
 
-This project is currently a demo version. The real version will be available at https://aurexia.com/wallet.
-
-## Access Website
-
-To access to the attached website, go to the following URL: https://aurexiagit.github.io/index.html
+This project is currently a demo version. The real version will be available at https://aurexiagit.github.io/index.html
 
 ## How to modify the codes
 
