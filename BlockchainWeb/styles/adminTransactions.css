@@ -1,0 +1,28 @@
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  width: 40%;
+  margin:5%;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#sending {
+  list-style-image: url('../images/transaction.png');
+}
+
+#transactionPage {
+	display : flex;
+	justify-content: center;
+}
+
+#rankSection {
+	width:40%;
+    margin:5%;
+}
+
+#history {
+  height: 500px;
+}

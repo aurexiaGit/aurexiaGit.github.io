@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <!-- ABA - Balise to enhance mobile display-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, target-densitydpi=device-dpi"/>
+		<!-- ABA - Balise to enhance mobile display - End -->
+        <link rel="icon" type="image/png" href="images/logoBlockchain.png"/>
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="styles/style.css"/>
+        <title>MyWallet - Aurexia</title> 
+    </head>
+
+    <body>
+        <header>
+            <div id="blockHeader">
+                <div id = "aurexiaName">AUREXIA</div>
+                <div id = "walletName">SOCIAL TOKEN</div>
+                <div id="identity">
+                    <div id = "name">Loading</div>
+                </div>
+            </div>
+            <hr>
+            <nav>
+                <ul>
+                    <li><a href='main.html'>HOME </a></li>
+                    <li><a href='ranking.html'>RANKING </a></li>
+                    <li><a href='history.html'>HISTORY </a></li>
+                    <li><a class = "active" href='donation.html'>DONATION </a></li>
+                    <li><a id="adminPage" href='admin.html'>ADMIN </a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="donationPage" class="card">
+            <div id="opening">Donation Status : <span class="redText">Closed</span></div>
+            <div class="form" style="margin:0 0 10% 0;">
+                <div id="balance">
+                    <div id="astValue">0</div>
+                    <div id="ast">AST</div>
+                </div>
+                <form id="container-table-donation">
+                    <table id ="donationTable">
+                        <caption></caption>
+                        <thead>
+                            <tr id="topTable">
+                                <th scope="col">AMOUNT</th>
+                                <th scope="col">CHARITY</th>
+                                <th scope="col" style="display:none;">ADDRESS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="content-donation" class="table-body">
+                        </tbody>
+                    </table>
+                </form>
+                <div>&#8287;</div>
+                <button onclick="return transferCharity()">Send</button>
+                <div>&#8287;</div>
+                <!--canvas id="myChart" style="max-width: 500px;"></canvas-->
+            </div>
+        </div>
+        <script type="text/javascript" src="scripts/main.js"></script>
+        <script type="text/javascript" src="scripts/donation.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+    </body>
+</html>

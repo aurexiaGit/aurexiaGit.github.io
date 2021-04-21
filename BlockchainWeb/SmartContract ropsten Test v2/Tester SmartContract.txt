@@ -1,0 +1,59 @@
+﻿seed metamask :enhance prefer gospel staff reward youth forward curve before predict crouch bottom
+MDP : azertyuiop (tu n'en as pas beosin normalement)
+
+admin : 0xc4d446c6B924c431f89214319D5A3e6bb67e7627    (est dans la withelist "aurexiaMember")
+
+test1: 0x4968cccE83Ad9300f27c7Ece3a15e469b51a5dFd     (est dans la withelist "aurexiaMember")
+
+test2: 0xFAb573993Bb7772E9ee25cca1A2DB24a79A4beA8     (n'est pas dans la withelist "aurexiaMember", tu peux l'ajouter si tu veux avec le compte admin)
+
+asso1: 0x48BC8f1c04940da24349a7c9cdeC2040A860C3fe     (ajout�)
+
+asso2: 0x309081BCb2922A0b32b60E6A099d4dBDb85D77e5     (pas ajout�)
+
+Attention par contre quand tu es sur mycrypto de ne pas changer de compte car ca fait bugger le site sinon (il ne sait plus avec quel compte il doit int�ragir avec le contrat)
+Si tu veux changer de compte reload juste la page mycrypto
+Aussi le site est un peu instable, il se peut que la page se reloade toute seule quelques fois
+
+
+Pour int�ragir avec le contrat selection ropsten en haut a droite et entre juste : 
+
+- adresse du contrat : 0xaD57d1eD8A07Dcd5657eb7A1880C2Cc0C71257aE
+
+
+
+
+
+
+Fonctions utilisées pour tester le contract via "truffle console"
+
+
+
+let token = await AurexiaSocialToken.deployed()
+
+let newMembers = token.addToAurexiaMembers ("0x4968cccE83Ad9300f27c7Ece3a15e469b51a5dFd", "0x416d696e65204261647279", 1, {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+let newMembers1 = token.addToAurexiaMembers ("0xFAb573993Bb7772E9ee25cca1A2DB24a79A4beA8", "0x53e96261737469656e20504945525245", 2, {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+let newMembers2 = token.addToAurexiaMembers ("0x48BC8f1c04940da24349a7c9cdeC2040A860C3fe", "0x5a696e6564696e65205a6964616e65", 2, {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+
+token.transferAll("50000000000000000000", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})  
+token.getPersonalWordings("0xc4d446c6B924c431f89214319D5A3e6bb67e7627", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+token.getAllWordings()
+
+token.getMembers()
+
+token.getMembersCharityAndName()
+
+token.mint("0x4968cccE83Ad9300f27c7Ece3a15e469b51a5dFd", "1000000000000000000000", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+
+let newAsso = token.addAssociation("0x309081BCb2922A0b32b60E6A099d4dBDb85D77e5", "0x4c61206372617661746520736f6c696461697265", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+let newAsso1 = token.addAssociation("0xC2e2Ce1368180F65eD6449562dB15dFED0635D7E", "0x5365636f75727320506f70756c61697265", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+let newAsso2 = token.addAssociation("0x998A5399268271cFf3A5dE5b3603E05903232Be5", "0x4c657320526573746f7320647520636f657572", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+
+let newMembersAdd = token.addToAurexiaMembers ("0x7Ce533366C6a6b981c27092F1eb50B226E5A5597", "0x4a65616e204d696368656c", 1, {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+
+token.remAurexiaMembers("0xFAb573993Bb7772E9ee25cca1A2DB24a79A4beA8", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+
+token.remAssociation("0xC2e2Ce1368180F65eD6449562dB15dFED0635D7E", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+
+let newAssoReAdd = token.addAssociation("0xC2e2Ce1368180F65eD6449562dB15dFED0635D7E", "0x5365636f75727320506f70756c61697265", {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})
+let newMembersReAdd = token.addToAurexiaMembers ("0xFAb573993Bb7772E9ee25cca1A2DB24a79A4beA8", "0x53e96261737469656e20504945525245", 2, {from: "0xc4d446c6B924c431f89214319D5A3e6bb67e7627"})

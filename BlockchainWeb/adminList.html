@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- ABA - Balise to enhance mobile display-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, target-densitydpi=device-dpi"/>
+		<!-- ABA - Balise to enhance mobile display - End -->
+        <link rel="icon" type="image/png" href="images/logoBlockchain.png"/>
+        <link rel = "stylesheet" href = "styles/style_ex.css" />
+        <link rel = "stylesheet" href = "styles/header_ex.css" />
+        <link rel = "stylesheet"  href="styles/adminList_ex.css" />
+        <title>MyWallet - Aurexia</title> 
+    </head>
+
+    <body>
+    	        <div id="block_page">
+    	<header>
+                <div id="logo">
+                    <img id = "logo" src="images/logoAurexia.png" alt="Logo Aurexia" />
+                </div>
+                <nav>
+                <p class = "button" id = "homePage" onclick="window.location='main.html'">HOME </p>
+                <p class = "button" id = "rankingPage" onclick="window.location='ranking.html'">RANKING </p>
+                <p class = "button" id = "historyPage" onclick="window.location='history.html'">HISTORY </p>
+                <p class = "button" id = "donationPage" onclick="window.location='donation.html'">DONATION </p>
+                <p class = "button" id = "adminPage" onclick="window.location='admin.html'">ADMIN </p>
+                </nav>
+                <div id="identity">
+                    <br> <img class = "pic" src="images/blank.png"> <div id = "name"> loading ... </div>
+                </div>
+            </header>
+        <section id='notifBanner'>
+            <img id="arrow" src="images/pageArrow.png">
+            <div id="notifs">
+                <div id="history">
+                </div>
+            </div>
+        </section>
+
+        <section id="rankingsPage">
+            <div class="form">
+              <h1> Choose the ranking </h1>
+              <form id="rankingChoice">
+                <select id="dest-select-list" required>
+                      <option value="balance">Balance List</option>
+                      <option value="transaction">Total Transaction List</option>
+                      <option value="send">Total Send List</option>
+                      <option value="receive">Total Receive List</option>
+                  </select>
+                <button onclick="return chooseList()">Validate</button>
+              </form>
+            </div>
+        </section>
+
+        <div id="table1">
+		    <div class="container-table">
+                <div class="wrap-table">
+                    <div class="table">
+                        <table id="table_content1">
+                            <thead>
+                                <tr>
+                                    <th class="column1">Ranking</th>
+                                    <th class="column2">Name</th>
+                                    <th class="column3">Address</th>
+                                    <th class="column4">AST Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="content" class="table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="table2">
+		    <div class="container-table">
+                <div class="wrap-table">
+                    <div class="table">
+                        <table id="table_content2">
+                            <thead>
+                                <tr>
+                                    <th class="column1">Ranking</th>
+                                    <th class="column2">Name</th>
+                                    <th class="column3">Total Transactions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="content2" class="table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="table3">
+		    <div class="container-table">
+                <div class="wrap-table">
+                    <div class="table">
+                        <table id="table_content3">
+                            <thead>
+                                <tr>
+                                    <th class="column1">Ranking</th>
+                                    <th class="column2">Name</th>
+                                    <th class="column3">Total Send</th>
+                                </tr>
+                            </thead>
+                            <tbody id="content3" class="table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="table4">
+		    <div class="container-table">
+                <div class="wrap-table">
+                    <div class="table">
+                        <table id="table_content4">
+                            <thead>
+                                <tr>
+                                    <th class="column1">Ranking</th>
+                                    <th class="column2">Name</th>
+                                    <th class="column3">Total Receive</th>
+                                </tr>
+                            </thead>
+                            <tbody id="content4" class="table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/main_ex.js"></script>
+        <script type="text/javascript" src="scripts/adminList.js"></script>
+    </body>
+</html>
+

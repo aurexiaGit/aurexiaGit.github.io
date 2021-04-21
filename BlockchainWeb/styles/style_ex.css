@@ -1,0 +1,177 @@
+@font-face {
+font-family: 'Calibri Light';
+font-style: normal;
+font-weight: normal;
+src: local('Calibri Light'), url('calibril.woff') format('woff');
+}
+
+
+body
+{
+	font-family: 'Calibri Light';
+	background-image: url("../images/background.png");
+	background-size: 100%;
+	margin:0px;
+	margin-top: 150px;
+}
+
+
+h1 {
+  text-align: center;
+  color: rgb(2,59,89);
+}
+
+#title {
+	font-size: 50px;
+	width:400px;
+	text-align: center;
+	position: relative;
+	margin:auto;
+    text-shadow: 0px 0px 10px white;
+}
+
+#leader {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+#upper_section
+{
+	display :flex;
+	justify-content: space-around;
+	margin-top: 50px;
+	padding-left:100px;
+	padding-right:100px;
+	padding-bottom: 50px;
+	align-items: center;
+	border-bottom: 1px solid;
+}
+
+
+#ast_balance
+{
+	display : flex;
+	flex-direction : column;
+	align-items: center;
+	justify-content: space-around;
+  	margin: 18px;
+}
+
+#ast_balance > * {
+    margin: 10px 0;
+}
+
+#astValue {
+	font-size: 40px;
+	color: rgb(2,59,89);
+	margin: 10px;
+}
+
+#new_member
+{
+  margin: 40px;
+}
+
+#new_member > * {
+    margin: 10px 0;
+}
+
+#new_charity
+{
+  margin: 40px;
+}
+
+#new_charity > * {
+    margin: 10px 0;
+}
+
+#profile_picture
+{
+	position : relative;
+	width : 80px;
+	bottom : 70px;
+	margin : auto;
+	background-color: white;
+	padding : 20px;
+	border : 1px solid;
+}
+
+#lower_section
+{
+	display : flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#history {
+    width: auto;
+    height: 300px;
+    text-align: justify;
+    overflow: auto;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Forms ]*/
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  width: 300px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 40px 0 rgba(2, 59, 89, 0.4), 0 5px 5px 0 rgba(2, 59, 89, 0.4);
+  margin-top: -20px;
+}
+.form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form select {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  text-transform: uppercase;
+  outline: 0;
+  background: rgb(29,74,105);
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: rgb(35,85,110);
+}
+
+footer
+{
+	position : fixed;
+	bottom :0;
+    font-weight: bold;
+}
+
+@media (max-width: 1000px) and (orientation: portrait) {
+  .form {
+  margin-top: -50px;
+  }
+  
+}

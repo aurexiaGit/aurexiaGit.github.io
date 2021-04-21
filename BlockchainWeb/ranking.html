@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8" />
+		<!-- ABA - Balise to enhance mobile display-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, target-densitydpi=device-dpi"/>
+		<!-- ABA - Balise to enhance mobile display - End -->
+        <link rel="icon" type="image/png" href="images/logoBlockchain.png"/>
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="styles/style.css"/>
+        <title>MyWallet - Aurexia</title> 
+    </head>
+
+    <body>
+		<header>
+            <div id="blockHeader">
+                <div id = "aurexiaName">AUREXIA</div>
+                <div id = "walletName">SOCIAL TOKEN</div>
+                <div id="identity">
+                    <div id = "name">Loading</div>
+                </div>
+            </div>
+            <hr>
+            <nav>
+                <ul>
+                    <li><a href='main.html'>HOME </a></li>
+                    <li><a class = "active" href='ranking.html'>RANKING </a></li>
+                    <li><a href='history.html'>HISTORY </a></li>
+                    <li><a href='donation.html'>DONATION </a></li>
+                    <li><a id="adminPage" href='admin.html'>ADMIN </a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="rankingsPage" class="card">
+            <div class="form">
+            <form id="rankingChoice">
+                <label for="dest-select-ranking">Select the ranking type</label>
+                <select id="dest-select-ranking" required>
+                    <option value="balance">Balance</option>
+                    <option value="transaction">Number of transactions</option>
+                    <option value="send">Number of tokens sent</option>
+                    <option value="receive">Number of tokens received</option>
+                </select>
+                <button onclick="return chooseRanking()">Validate</button>
+            </form>
+            </div>
+            
+            <div id = "ownRankingPhrase" class="text">
+                <div>You are currently ranked</div>
+            </div>
+
+            <div id = "ownRanking" class="text">
+                <div class="ownRankingTxt">45th</div>
+            </div>
+            
+            <div id = "RankingTransaction" class="text">
+                <div class="ownRankingTxt"> </div>
+            </div>
+
+            <div id = "RankingReceive" class="text">
+                <div class="ownRankingTxt"></div>
+            </div>
+
+            <div id = "RankingSend" class="text">
+                <div class="ownRankingTxt"></div>
+            </div>
+
+            <hr id="bodyTrait" color=#1554DF>
+
+            <div id="table1">
+                <table id="table_content1">
+                    <caption></caption>
+                    <thead>
+                        <tr>
+                            <th class="column1" scope="col">Ranking</th>
+                            <th class="column2" scope="col">Name</th>
+                            <th class="column3" scope="col">AST Balance</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody id="content" class="table-body">
+                        
+                    </tbody>
+                    
+                </table>
+            </div>
+
+            <div id="table2">
+                <table id="table_content2">
+                    <caption></caption>
+                    <thead>
+                        <tr>
+                            <th class="column1" scope="col">Ranking</th>
+                            <th class="column2" scope="col">Name</th>
+                            <th class="column3" scope="col">Total transaction</th>
+                        </tr>
+                    </thead>
+                    <tbody id="content2" class="table-body">
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="table3">
+                <table id="table_content3">
+                    <caption></caption>
+                    <thead>
+                        <tr>
+                            <th class="column1" scope="col">Ranking</th>
+                            <th class="column2" scope="col">Name</th>
+                            <th class="column3" scope="col">Total AST Send</th>
+                        </tr>
+                    </thead>
+                    <tbody id="content3" class="table-body">
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="table4">
+                <table id="table_content4">
+                    <caption></caption>
+                    <thead>
+                        <tr>
+                            <th class="column1" scope="col">Ranking</th>
+                            <th class="column2" scope="col">Name</th>
+                            <th class="column3" scope="col">Total AST Receive</th>
+                        </tr>
+                    </thead>
+                    <tbody id="content4" class="table-body">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/main.js"></script>
+	<script type="text/javascript" src="scripts/ranking.js"></script>
+	</body>
+</html>
+

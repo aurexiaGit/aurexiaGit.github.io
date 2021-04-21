@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- ABA - Balise to enhance mobile display-->
+		    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, target-densitydpi=device-dpi"/>
+		    <!-- ABA - Balise to enhance mobile display - End -->
+        <link rel="icon" type="image/png" href="images/logoBlockchain.png"/>
+        <link rel = "stylesheet" href = "styles/style_ex.css" />
+        <link rel = "stylesheet" href = "styles/header_ex.css" />
+        <link rel = "stylesheet" href = "styles/adminTokens.css" />
+        <title>MyWallet - Aurexia</title> 
+    </head>
+
+    <body>
+      <div id="block_page">
+        <header>
+          <div id="logo">
+              <img id = "logo" src="images/logoAurexia.png" alt="Logo Aurexia" />
+          </div>
+          <nav>
+          <p class = "button" id = "homePage" onclick="window.location='main.html'">HOME </p>
+          <p class = "button" id = "rankingPage" onclick="window.location='ranking.html'">RANKING </p>
+          <p class = "button" id = "historyPage" onclick="window.location='history.html'">HISTORY </p>
+          <p class = "button" id = "donationPage" onclick="window.location='donation.html'">DONATION </p>
+          <p class = "button" id = "adminPage" onclick="window.location='admin.html'">ADMIN </p>
+          </nav>
+          <div id="identity">
+              <br> <img class = "pic" src="images/blank.png"> <div id = "name"> loading ... </div>
+          </div>
+      </header>
+        <section id='notifBanner'>
+            <img id="arrow" src="images/pageArrow.png">
+            <div id="notifs">
+                <div data-simplebar id="history">
+                </div>
+            </div>
+        </section>
+        <section id="Tokens">
+            <div id="new_member">
+              <div class="form">
+                <img src="images/addTokens.png"/>
+                <h1>Create Tokens</h1>
+                <form id="addMember">
+                  <input placeholder="Amount" id="amount1" required/>
+                  <select id="dest-select-crea" required>
+                    <option value="init">Select Beneficiary</option>
+                  </select>
+                  <button onclick="return createTokens()">CREATE</button>
+                </form>
+              </div>
+            </div>
+            <div id="new_member">
+              <div class="form">
+                <img src="images/delete.png" alt="icon member" />
+                <h1>Destroy Tokens</h1>
+                <form id="supMember">
+                  <input placeholder="Amount" id="amount2" required/>  
+                  <select id="dest-select-rem" required>
+                    <option value="init">Select Beneficiary</option>
+                  </select>
+                  <button onclick="return destroyTokens()">DESTROY</button>
+                </form>
+              </div>
+            </div>
+        </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/links.js"></script>
+        <script type="text/javascript" src="scripts/main_ex.js"></script>         
+        <script type="text/javascript" src="scripts/adminToken.js"></script>
+    </body>
+</html>

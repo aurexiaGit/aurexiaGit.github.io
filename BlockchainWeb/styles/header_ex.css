@@ -1,0 +1,131 @@
+header
+{
+	background-color : rgb(29,74,105);
+  background-size: 100%;
+  display :flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 10px 0px 10px grey;
+  position:fixed;
+  width : 100%;
+  top:0;
+  z-index: 100;
+}
+
+#identity {
+	color : white;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#name {
+  position:relative;
+  height:50%;
+  margin:5px;
+  font-weight: bold;
+}
+
+#notifs {
+  position: fixed;
+  z-index: 1000;
+  background: #FFFFFF;
+  width: 300px;
+  top:110px;
+  right:5px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 40px 0 rgba(2, 59, 89, 0.4), 0 5px 5px 0 rgba(2, 59, 89, 0.4);
+}
+
+ #notifButton:hover {
+  cursor : pointer;
+ }
+
+#notifButton {
+  margin-left: 10px;
+}
+
+.pic {
+  overflow:hidden;
+  -webkit-border-radius:50px;
+  -moz-border-radius:50px;
+  border-radius:50px;
+  width:90px;
+  height:90px;
+}
+
+.button {
+  color : white;
+  font-size: 30px;
+  margin-left : 50px;
+}
+
+.button:hover {
+  cursor : pointer;
+}
+
+.button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #FFFF;
+    transition: width .3s;
+}
+
+.button:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+
+
+nav {
+  display : flex;
+}
+
+#arrow {
+  position: fixed;
+  top:0;
+  z-index: 10000;
+  top:90px;
+  right:24px;
+}
+
+@media (max-width: 1000px) and (orientation: portrait) {
+  header {
+    background-color : rgb(29,74,105);
+    /*background-color : #ED7D31;*/
+    background-size: 100%;
+    display :flex;
+    justify-content: normal;
+    align-items: center;
+    box-shadow: 10px 0px 10px grey;
+    position:fixed;
+    width : 100%;
+    top:0;
+    z-index: 100;
+    font-size:0;
+  }
+
+  #logo img{
+    width: 120px;
+  }
+
+  #block_page{
+    font-size:0;
+  }
+
+  .button {
+    color : white;
+    font-size: 15px;
+    margin-left : 5px;
+  }
+
+  #identity {
+    color : white;
+    font-size: 15px;
+    margin-left : 30px
+  }
+}

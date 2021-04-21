@@ -1,0 +1,124 @@
+html {
+  height: 100%;
+  font-size: 100%;
+}
+
+/* CSS Body*/
+
+body {
+  font-family: 'Lato', sans-serif;
+  height: 100%;
+  margin: 0;
+  background-image: linear-gradient(15deg, #24C69A, #1554DF);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+/*CSS Header*/
+
+#blockHeader{
+  position: relative;
+  margin-top: 3%;
+}
+
+#aurexiaName{
+  position: relative;
+  text-align: center;
+  font-size: 1em;
+  color: white;
+}
+
+#walletName{
+  position: relative;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: white;
+}
+
+hr{
+  color:white;
+  position: relative;
+  opacity: 0.33;
+}
+
+
+/*CSS for Welcome to Aurexia Blockchain*/
+
+#welcomeName{
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  font-size: 1.875em;
+  font-weight: bold;
+  color: white;
+}
+
+#aurexiaBlockchainName{
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 41%;
+  text-align: center;
+  font-size: 1.125em;
+  color: white;
+}
+
+/*CSS for button div and button*/
+
+#buttons {
+	display : flex;
+	flex-direction : column;
+	align-items: center;
+	justify-content: space-between;
+  position: absolute;
+  top: 78%;
+  left: 10%;
+  right: 10%;
+}
+
+button#Enter { 
+  border: none;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  font-weight: normal;
+  align-items: center;
+  text-decoration: none;
+  background-color: rgb(105,215,26);
+  border-radius: 1em;
+  height: 6em; 
+  font-size: 0.75em;
+  width: 17em;
+}
+
+
+/*Autres*/
+/*
+#transactionPage {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
+#history {
+    width: 300px;
+    height: 300px;
+    text-align: justify;
+    overflow: auto;
+}
+
+#sending {
+  list-style-image: url('../images/sendTokens.png');
+}
+
+#receiving {
+  list-style-image: url('../images/receiveTokens.png');
+}
+
+*/

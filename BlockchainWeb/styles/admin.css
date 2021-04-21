@@ -1,0 +1,53 @@
+button { 
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  margin : 30px;
+  font-weight: bold;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  width: 500px;
+  background-color: rgb(255,92,95);
+}
+
+button#Enter { 
+  border: none;
+  color: white;
+  padding: 5px 28px;
+  margin : 380px;
+  text-align: center;
+  justify-content: center;
+  font-weight: normal;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 38px;
+  width: 500px;
+  background-color: rgb(105,215,26);
+  height: 70px;
+  border-radius: 15px;
+}
+
+#buttons {
+	display : flex;
+	flex-direction : column;
+	align-items: center;
+	justify-content: space-between;
+  margin: 100px;
+}
+
+button:hover {
+  cursor : pointer;
+}
+
+@media (max-width: 1000px) and (orientation: portrait) {
+  button#Enter { 
+    font-size: 12px;
+    width: 250px;
+  }
+  
+}

@@ -1,0 +1,406 @@
+html {
+    height: 100%;
+    font-size: 100%;
+}
+
+/* CSS Body*/
+
+body {
+    font-family: 'Lato', sans-serif;
+    height: 100%;
+    margin: 0;
+    background-color: #E9F7FF;
+    background-image: linear-gradient(20deg, #24C69A, #1554DF);
+    background-size:100% 45%;
+    background-repeat: no-repeat;
+}
+
+/* Header */
+
+#blockHeader {
+    position: relative;
+    margin-top: 3%;
+}
+
+#aurexiaName{
+    position: relative;
+    text-align: left;
+    font-size: 1em;
+    color: white;
+    margin-left: 6%;
+}
+
+#walletName{
+    position: relative;
+    text-align: left;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: white;
+    margin-left: 6%;
+}
+
+#identity{
+    position: absolute;
+    top: -20%;
+    right:6%;
+    text-align: right;
+    font-size:1em;
+    color: white;
+}
+  
+hr{
+    color:white;
+    position: relative;
+    opacity: 0.33;
+}
+
+/*Menu Header*/
+  
+nav{
+    position: relative;
+    height: 3em;
+    font-size: 85%;
+    margin: 0 auto;
+    display:table;
+}
+
+ul {
+    position: relative;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+  
+li {
+    float:left;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0.7em;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #1554DF;
+    border-radius: 3em;
+}
+
+.active {
+    background-color: #1554DF;
+    border-radius: 3em;
+}
+
+.card{
+    margin: 1% 4% 4%;
+    border-width:1px;
+    border-style:solid;
+    border-color:#1554DF;
+    border-radius: 0.6em;
+}
+
+/*CSS Section Transaction */
+#transactionPage{
+    background: white;
+}
+
+#balance{
+    position: relative;
+    text-align : center;
+    border-width:1px;
+    border-style:solid;
+    border-color:#1554DF;
+    border-radius: 50%;
+    height: 7em;
+    width: 7em;
+    margin: 5% auto 10%;
+}
+
+#astValue{
+    position: relative;
+    font-weight: bold;
+    font-size: 2em;
+    margin: 23% auto 0;
+    color: #1554DF;
+  }
+  #ast{
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #1554DF;
+  }
+  
+  #send{
+    position: relative;
+    text-align : center;
+    margin: -6% auto 0;
+  }
+  
+  label {
+    display: block;
+    font-weight: none;
+    color: #1554DF;
+    margin: -2% auto 1%;
+  }
+  
+  input{
+    position: relative;
+    border: none;
+    border-bottom: 1px solid;
+    border-color: #1554DF;
+    color:black;
+    margin-bottom: 7%;
+    text-align: center;
+    font-size: 1.2em;
+  }
+  
+  input:focus {
+    border: 1px solid #1554DF;
+  }
+  
+  option{
+    color: black
+  }
+  
+  select{
+    margin-bottom: 4%;
+    border: none;
+    border-bottom: 1px solid;
+    border-color: #1554DF;
+    font-size: 1.2em;
+    text-align: center;
+    background-color: white;
+  }
+  
+  button { 
+    display: block;
+    margin: auto;
+    border: none;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #1554DF;
+    border-radius: 1em;
+    height: 3.5em; 
+    font-size: 0.9em;
+    width: 15em;
+  }
+
+/*CSS Section Rankings Table */
+#rankingsPage{
+    position:relative;
+    background:linear-gradient(#1554DF 10.2em, white 10.2em );
+}
+
+#rankingChoice{
+    position: relative;
+    text-align : center;
+    margin: 5% auto auto;
+  }
+  
+  #rankingChoice label {
+    color: white;
+    font-size: 120%;
+    margin: 6% 0% 6% 1%;
+  }
+
+  #rankingChoice option{
+    color: white;
+    background-color: #1554DF;
+  }
+  
+  #dest-select-ranking{
+    margin-bottom: 1%;
+    border: none;
+    border-bottom: 1px solid;
+    border-color: white;
+    background-color: #1554DF;
+    font-size: 1em;
+    text-align: center;
+    color: white;
+  }
+  
+  #rankingChoice button {
+    margin: 6% auto 4%;
+    background-color: #24C69A;
+    height: 2.5em;
+    width: 13em;
+  }
+
+/*CSS allTable */
+
+.text{
+    position :relative;
+    text-align:center;
+    color: #1554DF;
+    font-size:2em;
+    margin-top:1%;
+  }
+  
+  #ownRankingPhrase{
+    margin-top:10%;
+    font-size:1em;
+  }
+
+  #bodyTrait{
+    color:#1554DF;
+    position: relative;
+}
+
+#rankingsPage thead{
+    display:none;
+}
+
+table{
+    position: relative;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+#table_content1{
+    position:relative;
+}
+
+.column3{
+    size: 40%;
+}
+
+#rankingsPage th{
+    font-size:1em;
+    color:#1554DF;
+    padding-top:10%;
+}
+
+#rankigsPage tbody{
+  font-size: 120%;
+  color: #1554DF;
+  display: table;
+  margin: 0 0 5% 0;
+  border-spacing: 1em;
+}
+
+/*CSS Section Rankings Table */
+
+#historyPage{
+    position:relative;
+    background-color: #1554DF;
+  }
+
+#historyPage thead{
+    background-color: #1554DF;
+  }
+  
+  #historyPage tbody{
+    background-color: white;
+  }
+  
+  #topTable{
+    color:white;
+  }  
+  
+  #historyPage .table{
+      position: relative;
+  }
+  
+  #historyTable{
+      position:relative;
+      margin-left: auto;
+      margin-right:auto;
+      text-align: center;
+      border-collapse: collapse;
+  }
+  
+  #historyPage th{
+    color:white;
+    border-width: thin;
+    border: solid #1554DF
+  }
+  
+  #historyPage td{
+      font-size:1em;
+      color:#1554DF;
+      border-width: thin;
+      border: solid #1554DF
+  }
+  
+  .column1History{
+    width: 20%;
+  }
+  
+  .column2History{
+    width: 25%;
+  }
+  
+  .column3History{
+    width: 20%;
+  }
+  
+  .column4History{
+    width: 27%;
+  }
+
+/*CSS Section Transaction */
+#donationPage{
+    background: white;
+  }
+
+  #opening{
+    margin-top: 4%;
+    text-align: center;
+    color:#1554DF;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/*CSS Section Transaction */
+.redText{
+  color: red;
+}
+
+.greenText{
+  color: #00E100;
+}
+
+#donationTable{
+  position:relative;
+  background-color: #1554DF;
+}
+
+#donationTable thead{
+  background-color: #1554DF;
+}
+
+#donationTable tbody{
+  background-color: white;
+}
+
+#donationTable .table{
+    position: relative;
+}
+
+#donationTable{
+    position:relative;
+    margin-left: auto;
+    margin-right:auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#donationTable th{
+  border-width: thin;
+  border: solid #1554DF
+}
+
+#donationTable td{
+    font-size:1em;
+    color:#1554DF;
+    border-width: thin;
+    border: solid #1554DF
+}
+
+form#container-table-donation {
+  margin: -6% auto 0;
+}

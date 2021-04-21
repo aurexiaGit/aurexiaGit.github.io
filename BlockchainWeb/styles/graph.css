@@ -1,0 +1,12 @@
+#photos {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 14%;
+    margin-right: 14%;
+    margin-bottom: 10%;
+}
+
+.modebar {
+display: none !important;
+}

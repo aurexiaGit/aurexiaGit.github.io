@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- ABA - Balise to enhance mobile display-->
+		    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, target-densitydpi=device-dpi"/>
+		    <!-- ABA - Balise to enhance mobile display - End -->
+        <link rel="icon" type="image/png" href="images/logoBlockchain.png"/>
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link rel = "stylesheet" href = "styles/style_ex.css" />
+        <link rel = "stylesheet" href = "styles/header_ex.css" />
+        <link rel = "stylesheet" href = "styles/adminMember_ex.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="scripts/PapaParse-5.0.0/papaparse.min.js"></script>
+        <title>MyWallet - Aurexia</title> 
+    </head>
+
+    <body>
+      <div id="block_page">
+        <header>
+          <div id="logo">
+              <img id = "logo" src="images/logoAurexia.png" alt="Logo Aurexia" />
+          </div>
+          <nav>
+          <p class = "button" id = "homePage" onclick="window.location='main.html'">HOME </p>
+          <p class = "button" id = "rankingPage" onclick="window.location='ranking.html'">RANKING </p>
+          <p class = "button" id = "historyPage" onclick="window.location='history.html'">HISTORY </p>
+          <p class = "button" id = "donationPage" onclick="window.location='donation.html'">DONATION </p>
+          <p class = "button" id = "adminPage" onclick="window.location='admin.html'">ADMIN </p>
+          </nav>
+          <div id="identity">
+              <br> <img class = "pic" src="images/blank.png"> <div id = "name"> loading ... </div>
+          </div>
+      </header>
+          <section id='notifBanner'>
+              <img id="arrow" src="images/pageArrow.png">
+              <div id="notifs">
+                  <div id="history">
+                  </div>
+              </div>
+          </section>
+        <section id="assignMember">
+            <div id="new_member">
+              <div class="form">
+                <img src="images/member.png" alt="icon member" />
+                <h1>Assign a new member</h1>
+                <form id="addMember">
+                  <input type="text" placeholder="Address" id="adress1" required/>
+                  <input type="text" placeholder="Name" id="name1" required/>
+                  <input type="text" placeholder="Grade" id="grade1" required/>
+                  <button id="add" onclick="return addMember()">ADD</button>
+                </form>
+              </div>
+            </div>
+            <div id="new_member">
+              <div class="form">
+                <img src="images/remMember.png" alt="icon member" />
+                <h1>Remove a member</h1>
+                <form id="remMember">
+                  <select id="dest-select" required>
+                    <option value="init">Select</option>
+                  </select>
+                  <button id="rem" onclick="return remMember()">REMOVE</button>
+                </form>
+              </div>
+            </div>
+            <div id="new_member">
+              <div class="form">
+                <form id="upload">
+                  <h1>Upload the CSV file</h1>
+                  <input type="file" id="files"  class="form-control" accept=".csv" required />
+                  <button type="submit" id="submit-file" class="btn btn-primary">Upload File</button>
+                </form>
+              </div>
+            </div>
+        </section>
+        <script type="text/javascript" src="scripts/links.js"></script>
+        <script type="text/javascript" src="scripts/main_ex.js"></script>        
+        <script type="text/javascript" src="scripts/adminMembers.js"></script>
+    </body>
+</html>

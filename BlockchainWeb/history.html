@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <!-- ABA - Balise to enhance mobile display-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, target-densitydpi=device-dpi"/>
+        <!-- ABA - Balise to enhance mobile display - End -->
+        <link rel="icon" type="image/png" href="images/logoBlockchain.png"/>
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="styles/style.css"/>
+        <title>MyWallet - Aurexia</title> 
+    </head>
+
+    <body>
+        <header>
+                <div id="blockHeader">
+                    <div id = "aurexiaName">AUREXIA</div>
+                    <div id = "walletName">SOCIAL TOKEN</div>
+                    <div id="identity">
+                        <div id = "name">Loading</div>
+                    </div>
+                </div>
+                <hr>
+                <nav>
+                    <ul>
+                        <li><a href='main.html'>HOME </a></li>
+                        <li><a href='ranking.html'>RANKING </a></li>
+                        <li><a class = "active" href='history.html'>HISTORY </a></li>
+                        <li><a href='donation.html'>DONATION </a></li>
+                        <li><a id="adminPage" href='admin.html'>ADMIN </a></li>
+                    </ul>
+                </nav>
+        </header>
+        
+        <section id="historyPage" class="card">
+            <div id="container-table-history">
+                <table id ="historyTable">
+                    <caption></caption>
+                    <thead>
+                        <tr id="topTable">
+                            <th class="column1History" scope="col">Date</th>
+                            <th class="column2History" scope="col">From/To</th>
+                            <th class="column3History" scope="col">Amount</th>
+                            <th class="column4History" scope="col">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="content-history" class="table-body">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/main.js"></script>
+        <script type="text/javascript" src="scripts/history.js"></script>
+    </body>
+</html>

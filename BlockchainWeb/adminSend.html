@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- ABA - Balise to enhance mobile display-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, target-densitydpi=device-dpi"/>
+		<!-- ABA - Balise to enhance mobile display - End -->
+        <link rel="icon" type="image/png" href="images/logoBlockchain.png"/>
+        <link rel = "stylesheet" href = "styles/style_ex.css" />
+        <link rel = "stylesheet" href = "styles/header_ex.css" />
+        <link rel = "stylesheet" href = "styles/index_ex.css" />
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <title>MyWallet - Aurexia</title> 
+    </head>
+
+    <body>
+        <div id="block_page">
+            <header>
+                <div id="logo">
+                    <img id = "logo" src="images/logoAurexia.png" alt="Logo Aurexia" />
+                </div>
+                <nav>
+                <p class = "button" id = "homePage" onclick="window.location='main.html'">HOME </p>
+                <p class = "button" id = "rankingPage" onclick="window.location='ranking.html'">RANKING </p>
+                <p class = "button" id = "historyPage" onclick="window.location='history.html'">HISTORY </p>
+                <p class = "button" id = "donationPage" onclick="window.location='donation.html'">DONATION </p>
+                <p class = "button" id = "adminPage" onclick="window.location='admin.html'">ADMIN </p>
+                </nav>
+                <div id="identity">
+                    <br> <img class = "pic" src="images/blank.png"> <div id = "name"> loading ... </div>
+                </div>
+            </header>
+            <section id='notifBanner'>
+                <img id="arrow" src="images/pageArrow.png">
+                <div id="notifs">
+                    <div id="history">
+                    </div>
+                </div>
+            </section>
+            <section id="transactionPage">
+                  <div class="form">
+                    <img src="images/ast.png" alt="icon ast" /> <br>
+                    <h1> Send Aurexia Social Token </h1>
+                    <form id="send">
+                      <input placeholder="Amount" id="amount" required/>
+                      <input placeholder="Message" type="text" id="wording" required/>
+                      <select id="from-select" required>
+                            <option value="init">Select Originator</option>
+                      </select>
+                      <select id="to-select" required>
+                            <option value="init">Select Beneficiary</option>
+                      </select>
+                      <button onclick="return transferFromTo()">send</button>
+                      <div id="loading"></div>
+                    </form>
+                  </div>
+            </section>
+
+
+            <footer>
+                <p>© Copyright Aurexia – All rights reserved<br /></p>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/links.js"></script>
+        <script type="text/javascript" src="scripts/main_ex.js"></script>
+        <script type="text/javascript" src="scripts/adminSend.js"></script>
+    </body>
+</html>
