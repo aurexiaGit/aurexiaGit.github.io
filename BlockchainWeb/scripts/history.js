@@ -4,25 +4,10 @@ const getHistory = async () =>{
 	let users = {};
   
 //Foncions qui intéragissent avec le SC pour récupérer les adresses des utilisateurs et leur nom ainsi que la taille de cette liste dans le coté front.
-	const getCurAddress = async () =>{                         
-	  return new Promise(function(resolve, reject){
-		web3.eth.getAccounts((err, accounts) => {
-		  if (err) return reject(err);
-		  resolve(accounts[0]);
-	  })
-	})}
-
-	const getMembersAndName = async () =>{                        
-		return new Promise(function(resolve, reject){
-			Token.getMembersCharityAndName((err, members) => {
-				if (err) return reject(err);
-				resolve(members);
-	  	})
-	})}
 
 	const getPersoWordings = async (_address) =>{                        
 		return new Promise(function(resolve, reject){
-			Token.getPersonalWordings(_address, (err, members) => {
+			TokenABI.methods.getPersonalWordings(_address).call((err, members) => {
 			if (err) return reject(err);
 			resolve(members);
 	  	})
@@ -43,7 +28,7 @@ const getHistory = async () =>{
 	//stockage de ces données dans un objet javascript (cette méthode permet une meilleur rapidité lorsqu'on cherchera le nom d'un utilisateur grâce à son adresse publique)
 	for (let i=0; i<taille; i++) {
 		let address = listAddressAndName[0][i];
-		let name = web3.toAscii(listAddressAndName[1][i]);
+		let name = web3.utils.toAscii(listAddressAndName[1][i]);
 		users[address]={};
 		users[address].address=address;
 		users[address].name=name;
@@ -118,7 +103,7 @@ const getHistory = async () =>{
 
 				var column4 = document.createElement('td');
 				column4.className = "column4History";
-				column4.innerHTML = web3.toAscii(_listPersoWording[3][key]);
+				column4.innerHTML = web3.utils.toAscii(_listPersoWording[3][key]);
 				row.appendChild(column4);
 			}
 		}

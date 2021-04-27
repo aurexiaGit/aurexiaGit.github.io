@@ -3,7 +3,7 @@ const dropdownListFrom = (_users, _keyName) => {  //on récupère l'addresse de 
 
 	var select = document.getElementById("from-select");
   	for (let i=0; i<_keyName.length; i++){
-    key = _keyName[i];
+    var key = _keyName[i];
 		if (_users.hasOwnProperty(key) && key !== "admin" && _users[key].address !== "0x0000000000000000000000000000000000000000") {
 		var opt = document.createElement('option');
 		opt.value = _users[key].address.toLowerCase();
@@ -17,7 +17,7 @@ const dropdownListTo = (_users, _keyName) => {  //on récupère l'addresse de l'
 
 	var select = document.getElementById("to-select");
   	for (let i=0; i<_keyName.length; i++){
-    key = _keyName[i];
+    var key = _keyName[i];
 		if (_users.hasOwnProperty(key) && key !== "admin" && _users[key].address !== "0x0000000000000000000000000000000000000000") {
 		var opt = document.createElement('option');
 		opt.value = _users[key].address.toLowerCase();
@@ -35,31 +35,13 @@ const getUsersFrom = async () =>{
 	let listAddressAndName;
 	let name;
 	var i = 0;
-	
-	//fonction interagissant avec le SC recupérant une liste composé des noms et addresse des utilisateurs 
-	const getMembersAndName = async () =>{                        
-		return new Promise(function(resolve, reject){
-			Token.getMembersAndNameAndBalance((err, members) => {
-				if (err) return reject(err);
-				resolve(members);
-	  	})
-	})}
-	
-	//fonction interagissant avec le SC récupérant la taille de la liste 
-  const getTaille = async () =>{
-    return new Promise(function(resolve, reject){
-      Token.sizeListAccount((err, result) => {
-        if (err) return reject(err);
-        resolve(result);
-    })
-  })}
 
 	//Création de l'objet JS users
 	listAddressAndName = await getMembersAndName();
   	let taille = await getTaille();
 	while (i < taille) {
 		var address = listAddressAndName[0][i];
-		name = web3.toAscii(listAddressAndName[1][i]);
+		name = web3.utils.toAscii(listAddressAndName[1][i]);
 		users[name]={};
 		users[name].address=address;
 		users[name].name=name;
@@ -67,8 +49,8 @@ const getUsersFrom = async () =>{
 	}
 
 	let keyName = listAddressAndName[1];
-  	for (let i=0; i<keyName.length; i++){
-    	keyName[i]=web3.toAscii(keyName[i]);
+  	for (i=0; i<keyName.length; i++){
+    	keyName[i]=web3.utils.toAscii(keyName[i]);
 	}
 	keyName.sort();
 
@@ -88,12 +70,12 @@ const transferFromTo = async() => {
 	let amount = document.getElementById("amount").value;
 	amount = amount*Math.pow(10,18);
 	let message = document.getElementById("wording").value;
-	message = web3.fromAscii(message);
+	message = web3.utils.fromAscii(message);
 
 	//fonction de transfert de token (formulation différente mais un peu plus rigoureuse que dans index.js)
 	const transferEvent = async (_address1, _address2, amount, _message) =>{
 		return new Promise(function(resolve, reject){
-			Token.transferFrom(_address1, _address2, amount, _message, (err, result) => {
+			TokenABI.methods.transferFrom(_address1, _address2, amount, _message).send( {from : await getCurAddress()}, (err, result) => {
 				if (err) return reject (err);
 				resolve(result);
 			})

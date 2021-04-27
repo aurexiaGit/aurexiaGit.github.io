@@ -2,14 +2,6 @@
 //Test update amount value after sending tokens
 
 const refreshBalance= async () => {
-
-	const getCurAddress = async () =>{                         
-		return new Promise(function(resolve, reject){
-		web3.eth.getAccounts((err, accounts) => {
-			if (err) return reject(err);
-			resolve(accounts[0]);
-		})
-  	})};
 	
   	const getBalance = async (_curAddress) =>{
 		return new Promise(function(resolve, reject){
@@ -76,13 +68,6 @@ function createPage(Balance) {
 const accountManagement = async () => {
 
 	//fonctions interagissant avec le smart contract pour la fonction SC balanceOf
-	const getCurAddress = async () =>{                         
-		return new Promise(function(resolve, reject){
-		web3.eth.getAccounts((err, accounts) => {
-			if (err) return reject(err);
-			resolve(accounts[0]);
-		})
-  	})};
 
   	const getBalance = async (_curAddress) =>{
 		return new Promise(function(resolve, reject){
@@ -109,12 +94,12 @@ const Transfer = async() => {
 	let address = document.getElementById("dest-select").value;
 	let amount = document.getElementById("amount").value;
 	let wording = document.getElementById("wording").value;
-	wording = web3.fromAscii(wording);
+	wording = web3.utils.fromAscii(wording);
 
 	//fonction intéragissant avec le SC pour le transfert de token
 	const transferEvent = async (address, amount, _wording) =>{
 		return new Promise(function(resolve, reject){
-			Token.transfer(address, amount*Math.pow(10,18), _wording, (err, result) => {
+			TokenABI.methods.transfer(address, amount*Math.pow(10,18), _wording).send( {from : await getCurAddress()}, (err, result) => {
 				if (err) return reject (err);
 				resolve(result);
 			})

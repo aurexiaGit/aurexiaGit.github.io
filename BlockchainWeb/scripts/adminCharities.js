@@ -8,7 +8,7 @@ const addCharity = async () => {
 	//Fonction pour ajouter une association (on appelle une fonction du smart contract)
 	const addC = async (address, name) =>{                         
 		return new Promise(function(resolve, reject){     // utilisation de promesse pour le await
-			Token.addAssociation(address,name,(err,result) => {
+			TokenABI.methods.addAssociation(address,name).send({from : await getCurAddress()}, (err,result) => {
 				if (err) return reject(err);
 				resolve(result);
 			})
@@ -31,7 +31,7 @@ const remCharity = async () => {
 	//Fonction pour retirer une association (on appelle une fonction du smart contract)
 	const remC = async (address) =>{                         
 		return new Promise(function(resolve, reject){		 // utilisation de promesse pour le await
-			Token.remAssociation(address,(err,result) => {
+			TokenABI.methods.remAssociation(address).send({from : await getCurAddress()}, (err,result) => {
 				if (err) return reject(err);
 				resolve(result);
 			})
@@ -60,9 +60,9 @@ const openDonation = async () => {
 	//On ouvre les donations aux utilisateurs (fonction du smartcontract). Au niveau du smart contract c'est un booléan qui passe en true et qui active les fonctions transfertToAssociation
 	const open = async () =>{                         
 		return new Promise(function(resolve, reject){
-			Token.launchDonation((err,result) => {
+			TokenABI.methods.launchDonation().send({from : await getCurAddress()}, (err, res) => {
 				if (err) return reject(err);
-				resolve(result);
+				resolve(res);
 			})
 	  	})
 	};
@@ -78,9 +78,9 @@ const closeDonation = async () => {     //Meme principe que ci dessus
 
 	const close = async () =>{                         
 		return new Promise(function(resolve, reject){
-			Token.closeDonation((err,result) => {
+			TokenABI.methods.closeDonation().send({from : await getCurAddress()}, (err,reslt) => {
 				if (err) return reject(err);
-				resolve(result);
+				resolve(reslt);
 			})
 	  	})
 	};
@@ -154,7 +154,7 @@ const getCharityList = async () =>{
 //Création de 4 fonctions intéragissant avec le Smart contract pour récupérer la liste des Charity's address, la taille de la liste, leur nom, leur balance
 	const getCharity = async () =>{                        
 		return new Promise(function(resolve, reject){
-			Token.getCharityAndNameAndBalance((err, members) => {
+			TokenABI.methods.getCharityAndNameAndBalance().call((err, members) => {
 				if (err) return reject(err);
 				resolve(members);
 	  		})
@@ -168,7 +168,7 @@ const getCharityList = async () =>{
 	while (i < taille) {
 		var address = listAddress[0][i];
 		name = web3.toAscii(listAddress[1][i]);
-		balance = listAddress[2][i];
+		var balance = listAddress[2][i];
 
 		//création d'un item de l'objet js
 		charity[name]={};

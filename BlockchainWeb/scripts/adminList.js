@@ -185,25 +185,6 @@ const getUsersList = async () =>{
 	let listAddressNameBalance;
 	let name;
 	let p = 0;
-  
-	//fonction interagissant avec le smartcontract pour renvoyer une liste contenant la liste de tous les utilisateurs, leur nom et leur balance
-	const getMembersNameBalance = async () =>{                        
-		return new Promise(function(resolve, reject){
-			Token.getMembersAndNameAndBalance((err, members) => {
-				if (err) return reject(err);
-				resolve(members);
-	  		})
-		})
-	};
-
-	//fonction interagissant avec le SC et renvoyant la taille de la liste précédente
-	const getTaille = async () =>{
-		return new Promise(function(resolve, reject){
-		  Token.sizeListAccount((err, result) => {
-			if (err) return reject(err);
-			resolve(result);
-		})
-	  })}
 	
 	//Récupération des listes
 	listAddressNameBalance = await getMembersNameBalance();
@@ -212,8 +193,8 @@ const getUsersList = async () =>{
 	//Remplissage de l'objet js users afin de l'afficher dans le tableau html plus tard 
 	while (p < taille) {
 		var address = listAddressNameBalance[0][p];
-		name = web3.toAscii(listAddressNameBalance[1][p]);
-		balance = (listAddressNameBalance[2][p])*Math.pow(10,-18);
+		name = web3.utils.toAscii(listAddressNameBalance[1][p]);
+		var balance = (listAddressNameBalance[2][p])*Math.pow(10,-18);
 		users[p]={};
 		users[p].address=address;
 		users[p].name=name;
@@ -243,7 +224,7 @@ const getUsersList = async () =>{
 
 	const getTransactions = async () =>{                        
 		return new Promise(function(resolve, reject){
-			Token.getAllInfoTransaction((err, members) => {
+			TokenABI.methods.getAllInfoTransaction().call((err, members) => {
 			if (err) return reject(err);
 			resolve(members);
 	  	})
@@ -252,18 +233,18 @@ const getUsersList = async () =>{
 	let resultAll = await getTransactions();
 
 	let nbrTransactionPerso = {};
-	for (let i=0; i<taille; i++){
+	for (i=0; i<taille; i++){
 		nbrTransactionPerso[i]= {};
 		nbrTransactionPerso[i].nbrTransaction = resultAll[1][i];
 		nbrTransactionPerso[i].send = resultAll[3][i]*Math.pow(10,-18);
 		nbrTransactionPerso[i].receive = resultAll[2][i]*Math.pow(10,-18);
-		nbrTransactionPerso[i].name = web3.toAscii(resultAll[5][i]);
+		nbrTransactionPerso[i].name = web3.utils.toAscii(resultAll[5][i]);
 	}
 
 
 	//tri pour le top transaction
 	for (var i = taille-1; i > 0 ; i--){
-		for (var j = 0; j < i; j++){
+		for (j = 0; j < i; j++){
 			if (nbrTransactionPerso[j].nbrTransaction < nbrTransactionPerso[j+1].nbrTransaction){
 				nbrTransactionPerso["tempo"] = nbrTransactionPerso[j];
 				nbrTransactionPerso[j] = nbrTransactionPerso[j+1];
@@ -274,8 +255,8 @@ const getUsersList = async () =>{
 
 	getTransactionList(nbrTransactionPerso, taille);
 
-	for (var i = taille-1; i > 0 ; i--){
-		for (var j = 0; j < i; j++){
+	for (i = taille-1; i > 0 ; i--){
+		for (j = 0; j < i; j++){
 			if (nbrTransactionPerso[j].send < nbrTransactionPerso[j+1].send){
 				nbrTransactionPerso["tempo"] = nbrTransactionPerso[j];
 				nbrTransactionPerso[j] = nbrTransactionPerso[j+1];
@@ -286,8 +267,8 @@ const getUsersList = async () =>{
 
 	getSendList(nbrTransactionPerso, taille);
 
-	for (var i = taille-1; i > 0 ; i--){
-		for (var j = 0; j < i; j++){
+	for (i = taille-1; i > 0 ; i--){
+		for (j = 0; j < i; j++){
 			if (nbrTransactionPerso[j].receive < nbrTransactionPerso[j+1].receive){
 				nbrTransactionPerso["tempo"] = nbrTransactionPerso[j];
 				nbrTransactionPerso[j] = nbrTransactionPerso[j+1];

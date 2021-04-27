@@ -51,7 +51,7 @@ const getCharityTable = (_charity) => {
 //fonctions intéragissant avec le smart contract, récuparant la liste des adresses des charities ainsi que leur nom et la taille de la liste
 const getCharities = async () =>{                        
 	return new Promise(function(resolve, reject){
-		Token.getCharityAndNameAndBalance((err, charities) => {
+		TokenABI.methods.getCharityAndNameAndBalance().call((err, charities) => {
 			if (err) return reject(err);
 			resolve(charities);
 		})
@@ -66,7 +66,7 @@ const formatCharities = async() =>{
 	let taille = listCharity[0].length;
 	for (let i = 0; i < taille; i++) {
 		var address = listCharity[0][i];
-		let name = web3.toAscii(listCharity[1][i]);
+		let name = web3.utils.toAscii(listCharity[1][i]);
 		var balance = Math.round(listCharity[2][i] * Math.pow(10,-18));
 		charity[name]={}
 		charity[name].address=address.toLowerCase();
@@ -81,7 +81,7 @@ const getCharity = async () =>{
 
 	const isOpen = async () =>{
 		return new Promise(function(resolve, reject){
-			Token.isDonationOpen((err, result) =>{
+			TokenABI.methods.isDonationOpen().call((err, result) =>{
 				if(err) return reject(err);
 				resolve(result);
 			})
@@ -107,7 +107,7 @@ const transferCharity = async() => {
 	
 	const transferEvent = async (_address, _amount) =>{
 		return new Promise(function(resolve, reject){
-			Token.transferToAssociation(_address, _amount, (err, result) => {
+			TokenABI.methods.transferToAssociation(_address, _amount).send( {from : await getCurAddress()}, (err, result) => {
 				if (err) return reject (err);
 				resolve(result);
 			})

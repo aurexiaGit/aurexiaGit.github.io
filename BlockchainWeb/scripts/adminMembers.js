@@ -2,12 +2,12 @@ const addMember = async () => {
 	// Called when clicking on Add button
 	var _address = document.getElementById("adress1").value;
 	var _name = document.getElementById("name1").value;
-	_name = web3.fromAscii(_name); //car le smart contract stocke les noms en bytes 
+	_name = web3.utils.fromAscii(_name); //car le smart contract stocke les noms en bytes 
 	var _grade = document.getElementById ("grade1").value;
 
 	const addM = async (address,name,grade) =>{                         
 		return new Promise(function(resolve, reject){
-			Token.addToAurexiaMembers(address,name,grade,(err,result) => {
+			TokenABI.methods.addToAurexiaMembers(address,name,grade).send( {from : await getCurAddress()}, (err,result) => {
 				if (err) return reject(err);
 				resolve(result);
 			})
@@ -25,7 +25,7 @@ const remMember = async () => {
 
 	const remM = async (address) =>{                      
 		return new Promise(function(resolve, reject){
-			Token.remAurexiaMembers(address,(err,result) => {
+			TokenABI.methods.remAurexiaMembers(address).send( {from : await getCurAddress()}, (err,result) => {
 				if (err) return reject(err);
 				resolve(result);
 			})
@@ -91,7 +91,7 @@ $(document).ready(function(){
 		console.log(addressList);
 		console.log("gradeList");
 		console.log(gradeList);
-		Token.authorizeManyMembers(addressList, nameList, gradeList, taille, (err, result) =>{
+		TokenABI.methods.authorizeManyMembers(addressList, nameList, gradeList, taille).send( {from : await getCurAddress()}, (err, result) =>{
 			console.log('done');
 		})
 	}

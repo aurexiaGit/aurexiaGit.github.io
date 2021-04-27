@@ -1168,6 +1168,23 @@ const dropdownList = (_curAddress, _users, _keyName) => {
     }
   }
 }
+  
+const getTaille = async () =>{
+  return new Promise(function(resolve, reject){
+    TokenABI.methods.sizeListAccount().call((err, result) => {
+      if (err) return reject(err);
+      resolve(result);
+  })
+})}
+
+//fonctions intéragissant avec le SC pour récupérer la liste (membre, name) ainsi que sa taille
+const getMembersAndName = async () =>{                        
+		return new Promise(function(resolve, reject){
+			TokenABI.methods.getMembersAndNameAndBalance().call((err, members) => {
+				if (err) return reject(err);
+				resolve(members);
+	  	})
+	})}
 
 //fonction récupérant les utilisateurs et stockant ces données dans un objet js
 const getUsers = async () =>{
@@ -1177,23 +1194,6 @@ const getUsers = async () =>{
 	let name;
 	var i = 0;
   
-  //fonctions intéragissant avec le SC pour récupérer la liste (membre, name) ainsi que sa taille
-	const getMembersAndName = async () =>{                        
-		return new Promise(function(resolve, reject){
-			TokenABI.methods.getMembersAndNameAndBalance().call((err, members) => {
-				if (err) return reject(err);
-				resolve(members);
-	  	})
-	})}
-  
-  const getTaille = async () =>{
-    return new Promise(function(resolve, reject){
-      TokenABI.methods.sizeListAccount().call((err, result) => {
-        if (err) return reject(err);
-        resolve(result);
-    })
-  })}
-
   //assignation des valeurs (le await permet de stopper la compilation d'une fonction asynchrone tant que la promesse n'a pas fini son execution, c'est nécessaire car l'appel au smart contract est plus lent que la compilation js). 
 	listAddressAndName = await getMembersAndName();
   let taille = await getTaille();

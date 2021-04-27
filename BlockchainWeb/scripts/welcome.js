@@ -1083,4 +1083,3 @@ else {
   window.ethereum
   ethereum.enable()
 }
-

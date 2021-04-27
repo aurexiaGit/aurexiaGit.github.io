@@ -273,40 +273,12 @@ const getRankingList = async () =>{
 	var listAddressNameBalance;
 	var name;
 	var i = 0;
-	
-	const getCurAddress = async () =>{                     
-		return new Promise(function(resolve, reject){
-		web3.eth.getAccounts((err, accounts) => {
-			if (err) return reject(err);
-			resolve(accounts[0]);
-    	})
-	  })
-	}
-
-	//fonction interagissant avec le smartcontract pour renvoyer une liste contenant la liste de tous les utilisateurs, leur nom et leur balance
-	const getMembersNameBalance = async () =>{                        
-		return new Promise(function(resolve, reject){
-			Token.getMembersAndNameAndBalance((err, members) => {
-				if (err) return reject(err);
-				resolve(members);
-	  		})
-		})
-	};
-
-	//fonction interagissant avec le SC et renvoyant la taille de la liste précédente
-	const getTaille = async () =>{
-		return new Promise(function(resolve, reject){
-		  Token.sizeListAccount((err, result) => {
-			if (err) return reject(err);
-			resolve(result);
-		})
-	  })}
 
 	const getName = async (address) =>{                        
 		return new Promise(function(resolve, reject){
-			Token.getName(address, (err, res) => {
+			TokenABI.methods.getName(address).call((err, res) => {
 				if (err) return reject(err);
-				name = web3.toAscii(res);
+				name = web3.utils.toAscii(res);
 				resolve(name);
 			})
 		})
@@ -327,7 +299,7 @@ const getRankingList = async () =>{
 	//remplissage de l'objet user
 	while (i < taille) {
 		var address = listAddressNameBalance[0][i];
-		name = web3.toAscii(listAddressNameBalance[1][i]);
+		name = web3.utils.toAscii(listAddressNameBalance[1][i]);
 		let balance = (listAddressNameBalance[2][i])*Math.pow(10,-18);
 		users[i]={};
 		users[i].address=address;
@@ -420,7 +392,7 @@ const getRankingList = async () =>{
 
 	const getPersoTransactions = async (_address) =>{                        
 		return new Promise(function(resolve, reject){
-			Token.getPersoInfoTransaction(_address, (err, members) => {
+			TokenABI.methods.getPersoInfoTransaction(_address).call((err, members) => {
 			if (err) return reject(err);
 			resolve(members);
 	  	})
@@ -449,7 +421,7 @@ const getRankingList = async () =>{
 
 	const getTransactions = async () =>{                        
 		return new Promise(function(resolve, reject){
-			Token.getAllInfoTransaction((err, members) => {
+			TokenABI.methods.getAllInfoTransaction().call((err, members) => {
 			if (err) return reject(err);
 			resolve(members);
 	  	})
@@ -472,7 +444,7 @@ const getRankingList = async () =>{
 		nbrTransactionPerso[i].nbrTransaction = resultAll[1][i];
 		nbrTransactionPerso[i].send = resultAll[3][i]*Math.pow(10,-18);
 		nbrTransactionPerso[i].receive = resultAll[2][i]*Math.pow(10,-18);
-		nbrTransactionPerso[i].name = web3.toAscii(resultAll[5][i]);
+		nbrTransactionPerso[i].name = web3.utils.toAscii(resultAll[5][i]);
 	}
 
 
@@ -507,8 +479,6 @@ const getRankingList = async () =>{
 	}
 
 	getTransactionTable(topTransaction);
-
-
 
 	//Ranking user du nbr transactions
 	let rankingNbrTransaction = "err";
@@ -656,8 +626,6 @@ const getRankingList = async () =>{
 	//RR.innerHTML="<p class='ownRankingTxt'>Rank : "+ rankingReceiveTransaction.toString() +"</p>";
 	//let TAR = document.getElementById("totalReceive");
 	//TAR.innerHTML="<p class='ownRankingTxt'>Total AST Receive : "+ totalReceive.toString() +"</p>";
-
-
 	
 };
 

@@ -5,32 +5,14 @@ const getAdminHistory = async () =>{
 	let wording = {};
   
 //Foncions qui intéragissent avec le SC pour récupérer les adresses des utilisateurs et leur nom ainsi que la taille de cette liste dans le coté front.
-	const getCurAddress = async () =>{                         
-	  return new Promise(function(resolve, reject){
-		web3.eth.getAccounts((err, accounts) => {
-		  if (err) return reject(err);
-		  resolve(accounts[0]);
-	  })
-	})}
-
-	const getMembersAndName = async () =>{                        
-		return new Promise(function(resolve, reject){
-			Token.getMembersCharityAndName((err, members) => {
-				if (err) return reject(err);
-				resolve(members);
-	  	})
-	})}
-
 
 	const getAllWordings = async () =>{                        
 		return new Promise(function(resolve, reject){
-			Token.getAllWordings((err, members) => {
+			TokenABI.methods.getAllWordings().call((err, members) => {
 				if (err) return reject(err);
 				resolve(members);
 	  	})
 	})}
-
-
 
 	//récupération des informations
 	curAddress = await getCurAddress();
@@ -44,7 +26,7 @@ const getAdminHistory = async () =>{
 	//stockage de ces données dans un objet javascript (cette méthode permet une meilleur rapidité lorsqu'on cherchera le nom d'un utilisateur grâce à son adresse publique)
 	for (let i=0; i<taille; i++) {
 		let address = listAddressAndName[0][i];
-		let name = web3.toAscii(listAddressAndName[1][i]);
+		let name = web3.utils.toAscii(listAddressAndName[1][i]);
 		users[address]={};
 		users[address].address=address;
 		users[address].name=name;
@@ -111,17 +93,12 @@ const getAdminHistory = async () =>{
 				
 				var column5 = document.createElement('td');
 				column5.className = "column5History";
-				if (resultArray[key].from == "0xc4d446c6B924c431f89214319D5A3e6bb67e7627") {
-					column5.innerHTML = Math.round(resultArray[key].value*Math.pow(10,-18));
-				}
-				else {
-					column5.innerHTML = Math.round(resultArray[key].value*Math.pow(10,-18));
-				}
+				column5.innerHTML = Math.round(resultArray[key].value*Math.pow(10,-18));
 				row.appendChild(column5);
 
 				var column6 = document.createElement('td');
 				column6.className = "column6History";
-				column6.innerHTML = web3.toAscii(_listeWordings[3][key]);
+				column6.innerHTML = web3.utils.toAscii(_listeWordings[3][key]);
 				row.appendChild(column6);
 				
 				i++

@@ -11,7 +11,7 @@ const createTokens = async () => {
 	//fonction qui interagit avec le SC pour créer de nouveaux tokens.
 	const create = async (_address, _amount) =>{
 		return new Promise(function(resolve, reject){
-		Token.mint(_address,_amount, (err,result) => {
+		TokenABI.methods.mint(_address,_amount).send( {from : await getCurAddress()}, (err,result) => {
 			if (err) return reject (err);
 			resolve (result)
 		})
@@ -39,7 +39,7 @@ const destroyTokens = async () => {
 	//fonction qui interagit avec le SC pour détruire de nouveaux tokens. 
 	const destroy = async (_address, _amount) =>{
 		return new Promise(function(resolve, reject){
-		Token.burn(_address,_amount, (err,result) => {
+		TokenABI.methods.burn(_address,_amount).send( {from : await getCurAddress()}, (err,result) => {
 			if (err) return reject(err);
 			resolve (result);
 		})
@@ -64,7 +64,7 @@ const dropdownListCreaRem = (_users, _keyName) => {  //on récupère l'addresse 
 
 	var select = document.getElementById("dest-select-crea");
 	for (let i=0; i<_keyName.length; i++){
-		key = _keyName[i];
+		var key = _keyName[i];
 			if (_users.hasOwnProperty(key) && key !== "admin" && _users[key].address !== "0x0000000000000000000000000000000000000000") {
 			var opt = document.createElement('option');
 			opt.value = _users[key].address.toLowerCase();
@@ -76,14 +76,13 @@ const dropdownListCreaRem = (_users, _keyName) => {  //on récupère l'addresse 
   	for (let i=0; i<_keyName.length; i++){
 		key = _keyName[i];
 			if (_users.hasOwnProperty(key) && key !== "admin" && _users[key].address !== "0x0000000000000000000000000000000000000000") {
-			var opt = document.createElement('option');
+			opt = document.createElement('option');
 			opt.value = _users[key].address.toLowerCase();
 			opt.innerHTML = _users[key].name;
 			select1.appendChild(opt);
 		}
 	}
 }
-
 
 // Création d'un objet javascript qui stocke importe les utilisateurs du smartcontract
 const getUsersFrom = async () =>{
@@ -92,31 +91,13 @@ const getUsersFrom = async () =>{
 	let listAddressAndName;
 	let name;
 	var i = 0;
-	
-	//fonction interagissant avec le SC recupérant une liste composé des noms et addresse des utilisateurs 
-	const getMembersAndName = async () =>{                        
-		return new Promise(function(resolve, reject){
-			Token.getMembersAndNameAndBalance((err, members) => {
-				if (err) return reject(err);
-				resolve(members);
-	  	})
-	})}
-	
-	//fonction interagissant avec le SC récupérant la taille de la liste 
-  	const getTaille = async () =>{
-    return new Promise(function(resolve, reject){
-      Token.sizeListAccount((err, result) => {
-        if (err) return reject(err);
-        resolve(result);
-    	})
-  	})}
 
 	//Création de l'objet JS users
 	listAddressAndName = await getMembersAndName();
  	let taille = await getTaille();
 	while (i < taille) {
 		var address = listAddressAndName[0][i];
-		name = web3.toAscii(listAddressAndName[1][i]);
+		name = web3.utils.toAscii(listAddressAndName[1][i]);
 		users[name]={};
 		users[name].address=address;
 		users[name].name=name;
@@ -124,8 +105,8 @@ const getUsersFrom = async () =>{
 	}
 
 	let keyName = listAddressAndName[1];
-  	for (let i=0; i<keyName.length; i++){
-    keyName[i]=web3.toAscii(keyName[i]);
+  	for (i=0; i<keyName.length; i++){
+    keyName[i]=web3.utils.toAscii(keyName[i]);
 	}
 	keyName.sort();
 	console.log("keyName");
