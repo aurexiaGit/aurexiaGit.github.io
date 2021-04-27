@@ -3,7 +3,7 @@ const addCharity = async () => {
 	// On récupere les valeurs des champs
 	var _address = document.getElementById("adress1").value;
 	var _name = document.getElementById("name1").value;
-	_name = web3.fromAscii(_name);
+	_name = web3.utils.fromAscii(_name);
 	
 	//Fonction pour ajouter une association (on appelle une fonction du smart contract)
 	const addC = async (address, name) =>{                         

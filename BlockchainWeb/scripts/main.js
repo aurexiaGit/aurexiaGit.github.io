@@ -1088,26 +1088,24 @@ if (window.ethereum===undefined) {
 	window.confirm('Pas installe'); 
 }
 else {
-  window.ethereum
   ethereum.enable()
 }
 
 
-//fonction de log (notamment pour le bandeau => reconnaissance js de l'admin)
+//fonction intéragissant avec le SC 
+const getCurAddress = async () =>{        
+  return new Promise(function(resolve, reject){
+    web3.eth.getAccounts((err, accounts) => {
+      if (err) return reject(err);
+      resolve(accounts[0]);
+  })
+})}
 
+//fonction de log (notamment pour le bandeau => reconnaissance js de l'admin)
 const getLog = async () =>{
 
   let curAddress;
   let ownerAddress;
-
-  //fonction intéragissant avec le SC 
-  const getCurAddress = async () =>{        
-    return new Promise(function(resolve, reject){
-      web3.eth.getAccounts((err, accounts) => {
-        if (err) return reject(err);
-        resolve(accounts[0]);
-    })
-  })}
 
   const getOwner = async () =>{
     return new Promise(function(resolve, reject){
@@ -1218,19 +1216,10 @@ const getUsers = async () =>{
   keyNames.splice(0,1);
   keyNames.sort();
   keyNames.splice(0,0, "Administrator");
-  console.log(keyNames);
+  //console.log(keyNames);
 
   //get current address before dropdownlist call, to remove own name from dropdown list
   let curAddress;
-
-  const getCurAddress = async () =>{                         
-  return new Promise(function(resolve, reject){
-    web3.eth.getAccounts((err, accounts) => {
-      if (err) return reject(err);
-      resolve(accounts[0]);
-  })
-  })}
-
 
   curAddress = await getCurAddress();
   return dropdownList(curAddress, users, keyNames);
