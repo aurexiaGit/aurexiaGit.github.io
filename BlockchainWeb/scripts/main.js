@@ -1077,10 +1077,10 @@ var TokenABI = new web3.eth.Contract([
     "type": "function",
     "signature": "0xdd62ed3e"
   }
-], "0xaD57d1eD8A07Dcd5657eb7A1880C2Cc0C71257aE");
+]);
 
 //var Token = TokenABI.at('0xaD57d1eD8A07Dcd5657eb7A1880C2Cc0C71257aE');
-
+TokenABI.options.address = "0xaD57d1eD8A07Dcd5657eb7A1880C2Cc0C71257aE"
 
 // check that user has Metamask installed 
 
@@ -1111,7 +1111,7 @@ const getLog = async () =>{
 
   const getOwner = async () =>{
     return new Promise(function(resolve, reject){
-      Token.owner((err, accounts) => {
+      TokenABI.methods.owner().call((err, accounts) => {
         if (err) return reject(err);
         resolve(accounts);
     })
@@ -1119,7 +1119,7 @@ const getLog = async () =>{
 
   const getName = async (address) =>{                        
 		return new Promise(function(resolve, reject){
-			Token.getName(address, (err, res) => {
+			TokenABI.methods.getName(address).call((err, res) => {
 				if (err) return reject(err);
 				let name = web3.toAscii(res);
 				resolve(name);
@@ -1182,7 +1182,7 @@ const getUsers = async () =>{
   //fonctions intéragissant avec le SC pour récupérer la liste (membre, name) ainsi que sa taille
 	const getMembersAndName = async () =>{                        
 		return new Promise(function(resolve, reject){
-			Token.getMembersAndNameAndBalance((err, members) => {
+			TokenABI.methods.getMembersAndNameAndBalance().call().then((err, members) => {
 				if (err) return reject(err);
 				resolve(members);
 	  	})
@@ -1190,7 +1190,7 @@ const getUsers = async () =>{
   
   const getTaille = async () =>{
     return new Promise(function(resolve, reject){
-      Token.sizeListAccount((err, result) => {
+      TokenABI.methods.sizeListAccount().call((err, result) => {
         if (err) return reject(err);
         resolve(result);
     })

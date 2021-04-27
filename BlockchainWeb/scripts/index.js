@@ -13,7 +13,7 @@ const refreshBalance= async () => {
 	
   	const getBalance = async (_curAddress) =>{
 		return new Promise(function(resolve, reject){
-			Token.balanceOf(_curAddress, (err, result) => {
+			TokenABI.methods.balanceOf(_curAddress).call((err, result) => {
 				if (err) return reject (err);
 				resolve(result*Math.pow(10,-18));
 			})
@@ -85,7 +85,7 @@ const accountManagement = async () => {
 
   	const getBalance = async (_curAddress) =>{
 		return new Promise(function(resolve, reject){
-			Token.balanceOf(_curAddress, (err, result) => {
+			TokenABI.methods.balanceOf(_curAddress).call((err, result) => {
 				if (err) return reject (err);
 				resolve(result*Math.pow(10,-18));
 			})
