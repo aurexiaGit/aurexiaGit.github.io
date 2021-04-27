@@ -1121,7 +1121,7 @@ const getLog = async () =>{
 		return new Promise(function(resolve, reject){
 			TokenABI.methods.getName(address).call((err, res) => {
 				if (err) return reject(err);
-				let name = web3.toAscii(res);
+				let name = web3.utils.toAscii(res);
 				resolve(name);
 			})
 		})
@@ -1182,7 +1182,7 @@ const getUsers = async () =>{
   //fonctions intéragissant avec le SC pour récupérer la liste (membre, name) ainsi que sa taille
 	const getMembersAndName = async () =>{                        
 		return new Promise(function(resolve, reject){
-			TokenABI.methods.getMembersAndNameAndBalance().call().then((err, members) => {
+			TokenABI.methods.getMembersAndNameAndBalance().call((err, members) => {
 				if (err) return reject(err);
 				resolve(members);
 	  	})
@@ -1203,7 +1203,7 @@ const getUsers = async () =>{
   // Remplissage de l'objet js
 	while (i < taille) {
 		var address = listAddressAndName[0][i];
-		name = web3.toAscii(listAddressAndName[1][i]);
+		name = web3.utils.toAscii(listAddressAndName[1][i]);
 		users[name]={};
 		users[name].address=address;
 		users[name].name=name;
@@ -1211,14 +1211,14 @@ const getUsers = async () =>{
   }
   
   let keyName = listAddressAndName[1];
-  console.log(keyName);
+  let keyNames = [...keyName];
   for (i=0; i<keyName.length; i++){
-    keyName[i]=web3.toAscii(keyName[i]);
+    keyNames[i]=web3.utils.toAscii(keyName[i]);
   }
-  keyName.splice(0,1);
-  keyName.sort();
-  keyName.splice(0,0, "Administrator");
-  console.log(keyName);
+  keyNames.splice(0,1);
+  keyNames.sort();
+  keyNames.splice(0,0, "Administrator");
+  console.log(keyNames);
 
   //get current address before dropdownlist call, to remove own name from dropdown list
   let curAddress;
@@ -1233,7 +1233,7 @@ const getUsers = async () =>{
 
 
   curAddress = await getCurAddress();
-  return dropdownList(curAddress, users, keyName);
+  return dropdownList(curAddress, users, keyNames);
 };
 
 getUsers();

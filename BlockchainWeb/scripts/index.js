@@ -27,8 +27,9 @@ const refreshBalance= async () => {
 	var today = new Date();
 	var time;
 
-	const filter = web3.eth.filter('latest');
-	filter.watch((err, res) => {
+	/*const filter = web3.eth.filter('latest');
+	filter.watch(*/
+	web3.eth.subscribe('logs', {}, (err, res) => {
 	if (err) {
 		console.log(`Watch error: ${err}`);
 	} else {
