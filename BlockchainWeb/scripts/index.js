@@ -99,7 +99,7 @@ const Transfer = async() => {
 	//fonction intéragissant avec le SC pour le transfert de token
 	const transferEvent = async (address, amount, _wording) =>{
 		return new Promise(function(resolve, reject){
-			TokenABI.methods.transfer(address, amount*Math.pow(10,18), _wording).send( {from : await getCurAddress()}, (err, result) => {
+			TokenABI.methods.transfer(address, amount*Math.pow(10,18), _wording).send({from : await getCurAddress()}, (err, result) => {
 				if (err) return reject (err);
 				resolve(result);
 			})
