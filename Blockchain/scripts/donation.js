@@ -26,25 +26,28 @@ const getCharityTable = (_charity) => {
 	var i = 1
 	charitiesNames=[]
 	for (var key in _charity){
-		//création de la nouvelle ligne
-		var row = document.createElement('tr');
-		row.class = "row" + i.toString() + " body";
-		table.appendChild(row);
-		//Remplissage des colonnes de la nouvelle ligne avec les valeurs
-		var column4 = document.createElement('td');
-		column4.contentEditable = "true";
-		column4.innerHTML = 0;
-		row.appendChild(column4)
-		var column2 = document.createElement('td');
-		column2.innerHTML = _charity[key].name;
-		charitiesNames.push(_charity[key].name);
-		row.appendChild(column2);
-		var column3 = document.createElement('td');
-		column3.style = "display:none;";
-		column3.innerHTML = _charity[key].address;
-		charitiesBalance.push(_charity[key].balance);
-		row.appendChild(column3);
-		i++
+		if (_charity[key].name.includes(new Date().getFullYear()-1))
+		{
+			//création de la nouvelle ligne
+			var row = document.createElement('tr');
+			row.class = "row" + i.toString() + " body";
+			table.appendChild(row);
+			//Remplissage des colonnes de la nouvelle ligne avec les valeurs
+			var column4 = document.createElement('td');
+			column4.contentEditable = "true";
+			column4.innerHTML = 0;
+			row.appendChild(column4)
+			var column2 = document.createElement('td');
+			column2.innerHTML = _charity[key].name;
+			charitiesNames.push(_charity[key].name);
+			row.appendChild(column2);
+			var column3 = document.createElement('td');
+			column3.style = "display:none;";
+			column3.innerHTML = _charity[key].address;
+			charitiesBalance.push(_charity[key].balance);
+			row.appendChild(column3);
+			i++
+		}
 	}
 }
 
