@@ -10,24 +10,26 @@
         <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
         <link rel = "stylesheet" href = "styles/style_ex.css" />
         <link rel = "stylesheet" href = "styles/header_ex.css" />
-        <link rel = "stylesheet" href = "styles/admin_ex.css" /> 
+        <!--link rel = "stylesheet" href = "styles/admin_ex.css" /--> 
+        <link rel = "stylesheet" href = "fontawesome/css/all.css"/>
+        <link rel = "stylesheet" href = "styles/bootstrapAdjust.css"/>
         <title>MyWallet - Aurexia</title> 
     </head>
 
     <body>
         <div id="block_page">
             <header>
-                <div id="logo">
+                <div id="logo" >
                     <img id = "logo" src="images/logoAurexia.png" alt="Logo Aurexia" />
                 </div>
-                <nav>
-                <p class = "button" id = "homePage" onclick="window.location='main.html'">HOME </p>
-                <p class = "button" id = "rankingPage" onclick="window.location='ranking.html'">RANKING </p>
-                <p class = "button" id = "historyPage" onclick="window.location='history.html'">HISTORY </p>
-                <p class = "button" id = "donationPage" onclick="window.location='donation.html'">DONATION </p>
-                <p class = "button" id = "adminPage" onclick="window.location='admin.html'">ADMIN </p>
+                <nav >
+                <p class = "button" id = "homePage"  onclick="window.location='main.html'">HOME </p>
+                <p class = "button" id = "rankingPage"  onclick="window.location='ranking.html'">RANKING </p>
+                <p class = "button" id = "historyPage"  onclick="window.location='history.html'">HISTORY </p>
+                <p class = "button" id = "donationPage"  onclick="window.location='donation.html'">DONATION </p>
+                <p class = "button" id = "adminPage"  onclick="window.location='admin.html'">ADMIN </p>
                 </nav>
-                <div id="identity">
+                <div id="identity" >
                     <br> <img class = "pic" src="images/blank.png" alt=""> <div id = "name"> loading ... </div>
                 </div>
             </header>
@@ -38,13 +40,13 @@
                     </div>
                 </div>
             </section>
-            <section id = "buttons">
-                <button id = manageMem onclick="manageMembership()">MANAGE MEMBERSHIP <img src="images/memberIcon.png" alt=""/> </button>
-                <button id = memList onclick="memList()">MEMBERS LIST <img src="images/memberIcon.png" alt=""/> </button>
-                <button id = sendTok onclick="sendTokens()">SEND TOKENS <img src="images/send.png" alt=""/> </button>
-                <button id = tokens onclick="createdestroyTokens()">CREATE / DESTROY TOKENS <img src="images/token.png" alt=""/> </button>
-                <button id = transactions onclick="followTransactions()">FOLLOW TRANSACTIONS <img src="images/followTransactions.png" alt=""/> </button>
-                <button id = transactions onclick="charities()">CHARITIES<img src="images/charity.png" alt=""/> </button>
+            <section id = "buttons" class="d-grid gap-2">
+                <button id = manageMem class="row btn btn-primary btn-lg py-2" onclick="manageMembership()"><em class="fas fa-user"></em>MANAGE MEMBERSHIP</button>
+                <button id = memList class="row btn btn-primary btn-lg py-2" onclick="memList()"><em class="fas fa-users"></em>MEMBERS LIST</button>
+                <button id = sendTok class="row btn btn-primary btn-lg py-2" onclick="sendTokens()"><em class="fas fa-comments-dollar"></em>SEND TOKENS</button>
+                <button id = tokens class="row btn btn-primary btn-lg py-2" onclick="createdestroyTokens()"><em class="fas fa-plus-circle"></em>CREATE / DESTROY TOKENS</button>
+                <button id = transactions class="row btn btn-primary btn-lg py-2" onclick="followTransactions()"><em class="fas fa-search"></em>FOLLOW TRANSACTIONS</button>
+                <button id = transactions class="row btn btn-primary btn-lg py-2" onclick="charities()"><em class="fas fa-hand-holding-heart"></em>CHARITIES</button>
             </section>
             <footer>
                 <p>© Copyright Aurexia – All rights reserved<br />
