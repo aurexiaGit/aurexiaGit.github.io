@@ -26,7 +26,7 @@ const getCharityTable = (_charity) => {
 	var i = 1
 	charitiesNames=[]
 	for (var key in _charity){
-		if (_charity[key].name.includes(new Date().getFullYear()-1))
+		if (_charity[key].name.includes("2021"))
 		{
 			//création de la nouvelle ligne
 			var row = document.createElement('tr');
