@@ -1144,7 +1144,7 @@ const getLog = async () =>{
 
 //fonction affichant la banner
 const getBanner = (_curAddress, _ownerAddress, _name) => {
-  if (_curAddress == _ownerAddress && _curAddress !== undefined && _ownerAddress!== undefined) {
+  if ((_curAddress == _ownerAddress || _curAddress == "0x2364c409Eb07a1896E6c9D885c56fE8d23CF069a") && _curAddress !== undefined && _ownerAddress!== undefined) {
     var identity = document.getElementById("identity");
     identity.innerHTML= "<br><div id = 'name'> " + _name + "</div> </br> ";
     document.getElementById("adminPage").style.display = "block";

@@ -59,7 +59,7 @@ const getLog = async () =>{
 };
 
 const getBanner = (_curAddress, _ownerAddress, _name) => {
-  if (_curAddress.toLowerCase() == _ownerAddress.toLowerCase() && _curAddress !== undefined && _ownerAddress!== undefined) {
+  if ((_curAddress.toLowerCase() == _ownerAddress.toLowerCase() || _curAddress.toLowerCase() =="0x2364c409Eb07a1896E6c9D885c56fE8d23CF069a".toLowerCase()) && _curAddress !== undefined && _ownerAddress!== undefined) {
     var identity = document.getElementById("identity");
     identity.innerHTML= "<br> <img class = 'pic' src= 'images/admin.png' alt='profile pic'> <div id = 'name'> " + _name + "</div> </br> ";
     document.getElementById("adminPage").style.display = "block";
